@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulseRadio | Nostalgic Underground Radio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-mood="dark">
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <main class="app">
+    <header class="header panel">
+      <h1>PulseRadio</h1>
+      <p>Underground electronic discovery, live and effortless.</p>
+    </header>
+
+    <section class="console panel">
+      <article class="display panel-inset">
+        <p class="label">Now Playing</p>
+        <h2 id="trackTitle">Loading stream...</h2>
+        <p id="trackArtist">Please wait</p>
+
+        <div class="meta-row">
+          <span id="stationName">Station: --</span>
+          <span id="listeners">Listeners: --</span>
+        </div>
+
+        <div class="tag-row">
+          <span id="trackGenre" class="tag">Genre</span>
+          <span id="trackMood" class="tag">Mood</span>
+          <span id="liveState" class="tag live">OFFLINE</span>
+        </div>
+      </article>
+
+      <article class="deck panel-inset">
+        <div class="art-wrap">
+          <img id="albumArt" alt="Station artwork" />
+        </div>
+        <div id="meter" class="meter" aria-hidden="true"></div>
+        <div class="timer-row">
+          <span id="elapsed">0:00</span>
+          <span id="signal">Signal 0%</span>
+        </div>
+      </article>
+
+      <article class="controls panel-inset">
+        <button id="prevBtn" type="button">Scan -</button>
+        <button id="playBtn" type="button" class="accent">Play</button>
+        <button id="nextBtn" type="button">Scan +</button>
+        <button id="saveBtn" type="button">Save to Tape <small id="saveCount">0</small></button>
+      </article>
+    </section>
+
+    <section class="tuner panel">
+      <div class="tuner-head">
+        <strong>Station Tuner</strong>
+        <span id="tunerInfo">0 / 0</span>
+      </div>
+      <input id="tuner" type="range" min="0" max="0" value="0" step="1" />
+    </section>
+
+    <section class="filters panel">
+      <label>
+        Genre
+        <select id="genreSelect"></select>
+      </label>
+      <label>
+        Mood
+        <select id="moodSelect"></select>
+      </label>
+      <button id="randomBtn" type="button">Random Station</button>
+    </section>
+
+    <section class="discover panel">
+      <div class="discover-head">
+        <h3>More Like This</h3>
+        <p>Tap a station to switch instantly</p>
+      </div>
+      <div id="discoverList" class="discover-list"></div>
+    </section>
+  </main>
+
+  <audio id="audio" preload="none" crossorigin="anonymous"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
